@@ -1,0 +1,14 @@
+{
+  "name": "highcharts_module",
+  "version": "0.0.1",
+  "description": "Module responsible for how Microstrategy visualization using HighchartsJS library will work ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "highcharts": "^8.2.2"
+  }
+}

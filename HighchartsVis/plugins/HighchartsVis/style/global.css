@@ -1,0 +1,16 @@
+.highchartsvis {
+  /* FILL YOUR VIS STYLE HERE */
+}
+#RwMenuModel_WEB-INFxmllayoutsblocksInsertDHTMLWidgetMenuLayoutxml #mnuInsertWgHighchartsVis {
+  background: url(images/a1ae0d62f3e47ae0cc1aa22b839584ba.svg) no-repeat scroll 4px;
+  background-size: 16px;
+}
+#RwMenuModelEditor_WEB-INFxmllayoutsblocksInsertDHTMLWidgetMenuEditorLayoutxml #mnuInsertWgHighchartsVis {
+  background: url(images/a1ae0d62f3e47ae0cc1aa22b839584ba.svg) no-repeat scroll 4px;
+  background-size: 16px;
+}
+.mstrmojo-VIGallery .mstrmojo-VIGalleryList .item.ic-HighchartsVis > div > div {
+  background: url(images/a1ae0d62f3e47ae0cc1aa22b839584ba.svg) no-repeat scroll;
+  background-size: 30px;
+}
+
