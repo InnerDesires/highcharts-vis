@@ -23,7 +23,10 @@ mstrmojo.plugins.HighchartsVis.HighchartsVis = mstrmojo.declare(
     init(props) {
       this._super(props);
       this.setDefaultPropertyValues({
-        stackCol: 'true'
+        stackCol: 'true',
+        chartFont: {
+          fontFamily: "Arial"
+        }
       });
     },
     createGraphicModels() {

@@ -17,9 +17,40 @@ mstrmojo.plugins.HighchartsVis.HighchartsVisEditorModel = mstrmojo.declare(
               style: $WT.EDITORGROUP,
               items: [
                 {
+                  style: $WT.LABEL,
+                  labelText: 'Шрифт візуалізації'
+                },
+                {
+                  style: $WT.CHARACTERGROUP,
+                  propertyName: 'chartFont',
+                  items: [
+                    {
+                      childName: 'fontStyle',
+                      disabled: true
+                    }, {
+                      childName: 'fontSize',
+                      disabled: true
+                    }, {
+                      childName: 'fontColor',
+                      disabled: true
+                    }
+                  ]
+                }
+
+              ]
+            },
+            {
+              style: $WT.EDITORGROUP,
+              items: [
+                {
                   style: $WT.CHECKBOXANDLABEL,
                   propertyName: "invertChart",
                   labelText: "Поміняти місцями вісі"
+                },
+                {
+                  style: $WT.CHECKBOXANDLABEL,
+                  propertyName: "hideLegend",
+                  labelText: "Приховати легенду"
                 },
                 /* {
                   style: $WT.CHECKBOXANDLABEL,
@@ -60,7 +91,12 @@ mstrmojo.plugins.HighchartsVis.HighchartsVisEditorModel = mstrmojo.declare(
                   style: $WT.CHECKBOXANDLABEL,
                   propertyName: "reversedY",
                   labelText: "Інвертувати вісь"
-                }
+                },
+                {
+                  style: $WT.CHECKBOXANDLABEL,
+                  propertyName: "hideYGrid",
+                  labelText: "Приховати сітку"
+                },
               ],
             },
           ],

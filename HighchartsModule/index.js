@@ -12,6 +12,7 @@ export default function (mstrApi, mstrmojo) {
     g_mstrApi = mstrApi
     mstrApi.addThresholdMenuItem();
     mstrApi.addUseAsFilterMenuItem();
+    let currentSelection = [];
     let domNode = mstrApi.domNode;
     domNode.parentNode.style.userSelect = 'text';
     domNode.style.userSelect = 'text';
@@ -41,7 +42,24 @@ export default function (mstrApi, mstrmojo) {
                     name: value.name,
                     data: [parseFloat(value.rv)],
                     colorByPoint: colorByPoint,
-                    colors: [value.threshold && value.threshold.fillColor]
+                    colors: [value.threshold && value.threshold.fillColor],
+                    point: {
+                        events: {
+                            select: function (event) {
+                                currentSelection.push(data[this.x].headers[0].attributeSelector);
+                                mstrApi.applySelection(currentSelection);
+                            },
+                            unselect: function (event) {
+                                let index = currentSelection.findIndex(el => {
+                                    return data[this.x].headers[0].attributeSelector.tid === el.tid;
+                                });
+                                if (index > -1) {
+                                    currentSelection.splice(index, 1);
+                                }
+                                mstrApi.applySelection(currentSelection);
+                            }
+                        }
+                    }
                 }
             } else {
                 let valueToPush = parseFloat(value.rv);
@@ -53,13 +71,21 @@ export default function (mstrApi, mstrmojo) {
 
     let myChart = highcharts.chart(domNode.id, {
         colors: getDefaults().colors,
-         chart: {
+        chart: {
             inverted: propHelperBinary('invertChart'),
-            zoomType: 'xy'
+            zoomType: 'xy',
+            style: {
+                fontFamily: mstrApi.getProperty('chartFont').fontFamily
+            }
         },
+        legend: {
+            enabled: !propHelperBinary('hideLegend')
+        },
+
         credits: {
             enabled: false
         },
+
         plotOptions: {
             series: {
                 stacking: mstrApi.getProperty('stackCol') === 'true' ? 'normal' : undefined,
@@ -79,14 +105,15 @@ export default function (mstrApi, mstrmojo) {
             labels: {
                 autoRotation: [-90],
                 autoRotationLimit: 90
-            }, 
+            },
         },
         yAxis: {
             opposite: propHelperBinary('oppositeY'),
             reversed: propHelperBinary('reversedY'),
             title: {
                 text: undefined //categories[Object.keys(categories)[0]].name
-            }
+            },
+            gridLineColor: propHelperBinary('hideYGrid') ? '#00000000' : '#e6e6e6'
         },
         series: Object.keys(series).map(valueName => { return series[valueName] })
     });
