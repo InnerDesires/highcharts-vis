@@ -7,7 +7,10 @@ const { ENUM_ALLOW_DROP_TYPE } = mstrmojo.vi.models.CustomVisDropZones;
 
 // dropzone name list
 const ATTRIBUTE = 'Attribute';
-const METRIC = 'Metric';
+const LINE = 'Line';
+const COLUMN = 'Column';
+const AREA = 'Area';
+const DOT = 'Dot';
 const TOOLTIP = 'Tooltip';
 
 mstrmojo.plugins.HighchartsVis.HighchartsVisDropZones = mstrmojo.declare(
@@ -20,36 +23,52 @@ mstrmojo.plugins.HighchartsVis.HighchartsVisDropZones = mstrmojo.declare(
       return [
         {
           name: ATTRIBUTE,
-          title: 'Drag attributes here',
+          title: 'Атрибут',
           maxCapacity: 1,
           allowObjectType: ENUM_ALLOW_DROP_TYPE.ATTRIBUTE,
         },
         {
-          name: METRIC,
-          title: 'Drag metrics here',
+          name: LINE,
+          title: 'Лінії',
           maxCapacity: 10,
           allowObjectType: ENUM_ALLOW_DROP_TYPE.METRIC,
         },
         {
-          name: TOOLTIP,
-          isAdditionalInfo: true,
-          title: 'Drag objects here',
-          allowObjectType: ENUM_ALLOW_DROP_TYPE.ATTRIBUTE_AND_METRIC,
+          name: COLUMN,
+          title: 'Стовпчики',
+          maxCapacity: 10,
+          allowObjectType: ENUM_ALLOW_DROP_TYPE.METRIC,
         },
+        {
+          name: AREA,
+          title: 'Площа',
+          maxCapacity: 10,
+          allowObjectType: ENUM_ALLOW_DROP_TYPE.METRIC,
+        },
+        {
+          name: DOT,
+          title: 'Точки',
+          maxCapacity: 10,
+          allowObjectType: ENUM_ALLOW_DROP_TYPE.METRIC,
+        }
       ];
     },
     getActionsForObjectsDropped(zone, droppedObjects, idx, replaceObject, extras) {
       const actions = [];
-      if (this.getDropZoneName(zone) === METRIC) {
+      /* let zoneName = this.getDropZoneName(zone);
+      let result = [LINE, BAR, AREA, DOT].includes(zoneName)
+      if (result) {
         this.getAddDropZoneObjectsActions(actions, TOOLTIP, droppedObjects, idx, extras);
-      }
+      } */
       return actions;
     },
     getActionsForObjectsRemoved(zone, objects) {
       const actions = [];
-      if (this.getDropZoneName(zone) === METRIC) {
+      /* let zoneName = this.getDropZoneName(zone);
+      let result = [LINE, BAR, AREA, DOT].includes(zoneName)
+      if (result) {
         this.getRemoveDropZoneObjectsActions(actions, TOOLTIP, objects);
-      }
+      } */
       return actions;
     },
   },

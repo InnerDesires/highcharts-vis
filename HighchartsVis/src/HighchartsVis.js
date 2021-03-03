@@ -23,11 +23,7 @@ mstrmojo.plugins.HighchartsVis.HighchartsVis = mstrmojo.declare(
     init(props) {
       this._super(props);
       this.setDefaultPropertyValues({
-        minFont: 10,
-        maxFont: 70,
-        numOfWords: 200,
-        spiral: { ellipse: 'true', rectangular: 'false' },
-        textFont: { fontFamily: 'Arial' },
+        stackCol: 'true'
       });
     },
     createGraphicModels() {
@@ -55,9 +51,10 @@ mstrmojo.plugins.HighchartsVis.HighchartsVis = mstrmojo.declare(
 
     plot() {
       try {
-        highcharts_module(this, mstrmojo);  
-      } catch(e) {
+        highcharts_module(this, mstrmojo);
+      } catch (e) {
         alert(e);
+        alert(e.stack);
       }
     },
   },

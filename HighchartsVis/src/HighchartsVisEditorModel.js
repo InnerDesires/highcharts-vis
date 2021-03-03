@@ -11,61 +11,80 @@ mstrmojo.plugins.HighchartsVis.HighchartsVisEditorModel = mstrmojo.declare(
     getCustomProperty() {
       return [
         {
-          name: 'Demo Custom Vis',
+          name: 'Графік',
           value: [
             {
               style: $WT.EDITORGROUP,
               items: [
-                { style: $WT.LABEL, labelText: 'Text' },
                 {
-                  style: $WT.CHARACTERGROUP,
-                  propertyName: 'textFont',
-                  showFontStyle: false,
-                  showFontSizeAndColor: false,
-                  isFontSizeStepper: false,
+                  style: $WT.CHECKBOXANDLABEL,
+                  propertyName: "invertChart",
+                  labelText: "Поміняти місцями вісі"
                 },
-                {
-                  style: $WT.TWOCOLUMN,
-                  items: [
-                    { style: $WT.LABEL, width: '67%', labelText: 'Minimum Font Size:' },
-                    { style: $WT.STEPPER, width: '33%', propertyName: 'minFont', min: 5, max: 50 },
-                  ],
-                },
-                {
-                  style: $WT.TWOCOLUMN,
-                  items: [
-                    { style: $WT.LABEL, width: '67%', labelText: 'Maximum Font Size:' },
-                    { style: $WT.STEPPER, width: '33%', propertyName: 'maxFont', min: 50, max: 200 },
-                  ],
-                },
-                {
-                  style: $WT.TWOCOLUMN,
-                  items: [
-                    { style: $WT.LABEL, width: '67%', labelText: 'Number of Words:' },
-                    { style: $WT.STEPPER, width: '33%', propertyName: 'numOfWords', min: 1, max: 250 },
-                  ],
-                },
-                {
-                  style: $WT.TWOCOLUMN,
-                  items: [
-                    { style: $WT.LABEL, width: '40%', labelText: 'Spiral:' },
-                    {
-                      style: $WT.CHECKLIST,
-                      width: '60%',
-                      propertyName: 'spiral',
-                      orientation: 'v',
-                      multiSelect: false,
-                      items: [
-                        { labelText: 'Ellipse', propertyName: 'ellipse' },
-                        { labelText: 'Rectangular', propertyName: 'rectangular' },
-                      ],
-                    },
-                  ],
-                },
+                /* {
+                  style: $WT.CHECKBOXANDLABEL,
+                  propertyName: "showAxes",
+                  labelText: "Відображати вісі"
+                } */
               ],
             },
           ],
         },
+        {
+          name: 'Колонки',
+          value: [
+            {
+              style: $WT.EDITORGROUP,
+              items: [
+                {
+                  style: $WT.CHECKBOXANDLABEL,
+                  propertyName: "stackCol",
+                  labelText: "Накладання колонок"
+                }
+              ],
+            },
+          ],
+        },
+        {
+          name: 'Вісь Y',
+          value: [
+            {
+              style: $WT.EDITORGROUP,
+              items: [
+                {
+                  style: $WT.CHECKBOXANDLABEL,
+                  propertyName: "oppositeY",
+                  labelText: "Підписи з протилежної сторони"
+                },
+                {
+                  style: $WT.CHECKBOXANDLABEL,
+                  propertyName: "reversedY",
+                  labelText: "Інвертувати вісь"
+                }
+              ],
+            },
+          ],
+        },
+        {
+          name: 'Вісь X',
+          value: [
+            {
+              style: $WT.EDITORGROUP,
+              items: [
+                {
+                  style: $WT.CHECKBOXANDLABEL,
+                  propertyName: "oppositeX",
+                  labelText: "Підписи з протилежної сторони"
+                },
+                {
+                  style: $WT.CHECKBOXANDLABEL,
+                  propertyName: "reversedX",
+                  labelText: "Інвертувати вісь"
+                }
+              ],
+            },
+          ],
+        }
       ];
     },
   },
