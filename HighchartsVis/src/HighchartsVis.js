@@ -22,12 +22,20 @@ mstrmojo.plugins.HighchartsVis.HighchartsVis = mstrmojo.declare(
     supportNEE: true,
     init(props) {
       this._super(props);
-      this.setDefaultPropertyValues({
+      let defaultProps = {
         stackCol: 'true',
         chartFont: {
           fontFamily: "Arial"
         }
-      });
+      }
+      for (let i = 1; i <= 10; i++) {
+        defaultProps[`metric${i}FillColor`] = {
+          // each iteration get succeeding color from array of 7 colors
+          fillColor: `${['#057B48', '#91C964', '#F8D490', '#F69C91', '#46AFE6', '#005591', '#4C4C4E'][(i - 1) % 7]}`,
+          fillAlpha: "100"
+        }
+      }
+      this.setDefaultPropertyValues(defaultProps);
     },
     createGraphicModels() {
       const rawData = this.dataInterface.getRawData(ENUM_RAW_DATA_FORMAT.ROWS_ADV, {

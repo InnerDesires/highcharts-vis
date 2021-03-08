@@ -9,7 +9,7 @@ mstrmojo.plugins.HighchartsVis.HighchartsVisEditorModel = mstrmojo.declare(
     scriptClass: 'mstrmojo.plugins.HighchartsVis.HighchartsVisEditorModel',
     cssClass: 'highchartsvis-editor-model',
     getCustomProperty() {
-      return [
+      let props = [
         {
           name: 'Графік',
           value: [
@@ -122,6 +122,40 @@ mstrmojo.plugins.HighchartsVis.HighchartsVisEditorModel = mstrmojo.declare(
           ],
         }
       ];
+      let metricColors = {
+        name: 'Кольори метрик',
+        value: [
+          {
+            style: $WT.EDITORGROUP,
+            items: [
+
+            ]
+          }
+        ]
+      }
+      for (let i = 1; i <= 10; i++) {
+        metricColors.value[0].items.push(
+          {
+            style: $WT.TWOCOLUMN,
+            items: [{
+              style: $WT.LABEL,
+              width: "37%",
+              labelText: `Метрика ${i}`
+            }, {
+              style: $WT.FILLGROUP,
+              width: "63%",
+              propertyName: `metric${i}FillColor`,
+              items: [{
+                childName: 'fillAlpha',
+                disabled: true
+              }]
+            }
+            ]
+          }
+        )
+      }
+      props.push(metricColors);
+      return props;
     },
   },
 );
