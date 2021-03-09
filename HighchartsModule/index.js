@@ -31,6 +31,7 @@ export default function (mstrApi, mstrmojo) {
                 categories[header.tname].categories.push(header.name)
             }
         });
+        
         row.values.forEach((value) => {
             if (!series[value.name]) {
                 let colorByPoint = typeof value.threshold !== 'undefined';
