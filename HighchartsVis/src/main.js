@@ -1,4 +1,4 @@
 
 function main() {
- alert('Hello, Microstrategy!');
+ alert('Hello, Microstrategy!!!');
 }
