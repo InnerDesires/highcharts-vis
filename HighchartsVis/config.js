@@ -6,7 +6,7 @@ module.exports = {
   // ####################################################
 
   // the dir path of MicroStrategy plugins, relative or absolute path are both valid
-  path_of_plugins: 'G:/Program Files/MicroStrategy/Code/plugins',
+  path_of_plugins: 'C:\\Program Files\\MicroStrategy\\Workstation\\Code\\plugins',
   // Whether you wanna manage WEB-INF altogether by yourself.
   // By default, files(e.g. messageBundle, styleCatalog.xml and visualizations.xml) in WEB-INF
   // would be created and updated based on this config file.

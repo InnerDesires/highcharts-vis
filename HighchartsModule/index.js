@@ -66,7 +66,6 @@ export default function (mstrApi, mstrmojo) {
             }
         });
     });
-
     let myChart = highcharts.chart(domNode.id, {
         colors: getDefaultColors(mstrApi),
         chart: {
@@ -77,10 +76,10 @@ export default function (mstrApi, mstrmojo) {
             }
         },
         legend: {
-            enabled: !mstrApi.getProperty('hideLegend') === 'true'
+            enabled: !(mstrApi.getProperty('hideLegend') === 'true')
         },
         tooltip: {
-            pointFormat: '<b>{point.category}</b>: <b>{point.y}</b><br/>'
+            pointFormat: '<b>{point.name}</b>: <b>{point.y}</b><br/>'
         },
         credits: {
             enabled: false
