@@ -103,7 +103,8 @@ export default function (mstrApi, mstrmojo) {
             },
             labels: {
                 autoRotation: [-90],
-                autoRotationLimit: 90
+                autoRotationLimit: 90, 
+                enabled: !(mstrApi.getProperty('hideX') === 'true')
             },
         },
         yAxis: {
@@ -111,6 +112,9 @@ export default function (mstrApi, mstrmojo) {
             reversed: mstrApi.getProperty('reversedY') === 'true',
             title: {
                 text: undefined //categories[Object.keys(categories)[0]].name
+            },
+            labels: {
+                enabled: !(mstrApi.getProperty('hideY') === 'true')
             },
             gridLineColor: mstrApi.getProperty('hideYGrid') === 'true' ? '#00000000' : '#e6e6e6'
         },

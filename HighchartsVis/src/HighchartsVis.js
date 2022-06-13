@@ -1,5 +1,3 @@
-import * as d3 from 'd3';
-import cloud from 'd3-cloud';
 import highcharts_module from 'highcharts_module';
 
 // mojo module

@@ -89,6 +89,11 @@ mstrmojo.plugins.HighchartsVis.HighchartsVisEditorModel = mstrmojo.declare(
                 },
                 {
                   style: $WT.CHECKBOXANDLABEL,
+                  propertyName: "hideY",
+                  labelText: "Приховати підписи значень"
+                },
+                {
+                  style: $WT.CHECKBOXANDLABEL,
                   propertyName: "reversedY",
                   labelText: "Інвертувати вісь"
                 },
@@ -111,6 +116,11 @@ mstrmojo.plugins.HighchartsVis.HighchartsVisEditorModel = mstrmojo.declare(
                   style: $WT.CHECKBOXANDLABEL,
                   propertyName: "oppositeX",
                   labelText: "Підписи з протилежної сторони"
+                },
+                {
+                  style: $WT.CHECKBOXANDLABEL,
+                  propertyName: "hideX",
+                  labelText: "Приховати підписи значень"
                 },
                 {
                   style: $WT.CHECKBOXANDLABEL,

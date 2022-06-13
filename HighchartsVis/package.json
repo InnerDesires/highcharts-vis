@@ -11,8 +11,6 @@
     "node": ">=8"
   },
   "dependencies": {
-    "d3": "^5.9.7",
-    "d3-cloud": "^1.2.5",
     "highcharts_module": "file:../HighchartsModule"
   },
   "devDependencies": {
